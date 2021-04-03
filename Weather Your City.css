@@ -10,7 +10,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Eoe_Zno_L", sans-serif;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 img {
@@ -35,17 +35,6 @@ a:visited {
 .wrapper {
   width: 100%;
   height: 100vh;
-  background: #536976; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to bottom,
-    #292e49,
-    #536976
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    #292e49,
-    #536976
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .content_container {
@@ -55,6 +44,10 @@ a:visited {
   align-items: center;
   width: 100%;
   height: 100%;
+  background-image: url(bg/rain.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .weather_detail_information_container {
