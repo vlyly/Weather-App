@@ -44,10 +44,6 @@ a:visited {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-image: url(bg/rain.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .weather_detail_information_container {
