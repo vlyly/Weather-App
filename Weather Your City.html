@@ -12,29 +12,29 @@
             <div class="content_container">
                 <h1 id="city" class="city">경기도 용인시 보라동</h1>
                 <div class="weather_main_information_container">
-                    <div class="currunt_weather_container">
+                    <div class="current_weather_container">
                         <img id="weather_icon" class="weather_icon" src=""/>
-                        <h3 id="currunt_temperature"></h3><span aria-label="Celsius">℃</span>
+                        <div class="main_weather_item"><h3 id="current_temperature"></h3><span aria-label="Celsius">℃</span></div>
                     </div>
                     <div class="today_weather_contaienr">
-                        <span id="weather_description"></span>
-                        <span id="max_temperature"></span><span aria-label="Celsius">℃</span>/<span id="min_temperature"></span><span aria-label="Celsius">℃</span>
-                        <span id="feels_like_temperature"></span><span aria-label="Celsius">℃</span>
+                        <div class="main_weather_item"><span id="weather_description"></span></div>
+                        <div class="main_weather_item"><span id="max_temperature"></span><span aria-label="Celsius">℃</span>/<span id="min_temperature"></span><span aria-label="Celsius">℃</span></div>
+                        <div class="main_weather_item"><span id="feels_like_temperature"></span><span aria-label="Celsius">℃</span></div>
                     </div>
                 </div>
                 <div class="weather_detail_information_container">
-                    <ul class="weather_detail_item">
+                    <ul class="weather_detail_data">
                         <li>
-                            <div class="weather_detail_item_title">습도</h3>
-                            <div id="humidity" class="weather_detail_item_data"><span aria-label="Percentage">%</span>
+                            <h3 class="weather_detail_item_title">습도</h3>
+                            <div class="detail_weather_item"><span id="humidity" class="weather_detail_item_data"></span><span aria-label="Percentage">%</span></div>
                         </li>
                         <li>
-                            <div class="weather_detail_item_title">지난 1시간 강수량</h3>
-                            <div id="rain_volume" class="weather_detail_item_data"><span aria-label="Millimeters">mm</span>
+                            <h3 class="weather_detail_item_title">지난 1시간 강수량</h3>
+                            <div class="detail_weather_item"><span id="rain_volume" class="weather_detail_item_data"></span><span aria-label="Millimeters">mm</span></div>
                         </li>
                         <li>
-                            <div class="weather_detail_item_title">풍속</h3>
-                            <div id="wind_speed" class="weather_detail_item_data"><span aria-label="Meter per second">m/s</span>
+                            <h3 class="weather_detail_item_title">풍속</h3>
+                            <div class="detail_weather_item"><span id="wind_speed" class="weather_detail_item_data"></span><span aria-label="Meter per second">m/s</span></div>
                         </li>
                     </ul>
                 </div>
