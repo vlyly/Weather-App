@@ -1,4 +1,5 @@
 const api_key = "8fb4059bc67bab8fc8eb575b23460ee6";
+const content_container = document.getElementById("content_container");
 const city = document.getElementById("city");
 const weather_icon = document.getElementById("weather_icon");
 const weather_description = document.getElementById("weather_description");
@@ -30,16 +31,17 @@ function getWeather(latitude, longitude) {
       const cloud_data = json.clouds.all;
       const wind_speed_data = json.wind.speed;
 
-      weather_description.innerText = weather_description_data;
-      weather_icon.src = `icon/${weather_icon_code}.png`;
+      content_container.classList.add(`bg-${weather_icon_code}`);
+      humidity.innerText = humidity_data;
+      cloud.innerText = cloud_data;
+      wind_speed.innerText = wind_speed_data;
       current_temperature.innerText = current_temperature_data;
       current_temperature.ariaLabel = current_temperature_data + " Celsicus";
       max_temperature.innerText = temperature_max_data;
       min_temperature.innerText = temperature_min_data;
       feels_like_temperature.innerText = temperature_feels_like_data;
-      humidity.innerText = humidity_data;
-      cloud.innerText = cloud_data;
-      wind_speed.innerText = wind_speed_data;
+      weather_description.innerText = weather_description_data;
+      weather_icon.src = `icon/${weather_icon_code}.png`;
     }); // 상위 함수의 동작이 끝나면(response.json()이 반환되면) 그 값에서 온도와 장소 정보를 가져와 화면에 출력합니다
 }
 
