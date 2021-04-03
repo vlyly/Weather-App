@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie-edge"/>
+        <link rel="stylesheet" href="Weather Your City.css" />
+        <title>Weather Your City</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="content_container">
+                <h1 id="city" class="city">경기도 용인시 보라동</h1>
+                <div class="weather_main_information_container">
+                    <div class="currunt_weather_container">
+                        <img id="weather_icon" class="weather_icon" src=""/>
+                        <h3 id="currunt_temperature"></h3><span aria-label="Celsius">℃</span>
+                    </div>
+                    <div class="today_weather_contaienr">
+                        <span id="weather_description"></span>
+                        <span id="max_temperature"></span><span aria-label="Celsius">℃</span>/<span id="min_temperature"></span><span aria-label="Celsius">℃</span>
+                        <span id="feels_like_temperature"></span><span aria-label="Celsius">℃</span>
+                    </div>
+                </div>
+                <div class="weather_detail_information_container">
+                    <ul class="weather_detail_item">
+                        <li>
+                            <div class="weather_detail_item_title">습도</h3>
+                            <div id="humidity" class="weather_detail_item_data"><span aria-label="Percentage">%</span>
+                        </li>
+                        <li>
+                            <div class="weather_detail_item_title">지난 1시간 강수량</h3>
+                            <div id="rain_volume" class="weather_detail_item_data"><span aria-label="Millimeters">mm</span>
+                        </li>
+                        <li>
+                            <div class="weather_detail_item_title">풍속</h3>
+                            <div id="wind_speed" class="weather_detail_item_data"><span aria-label="Meter per second">m/s</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="Weather Your City.js"></script>
+        <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+        <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f9cc2295acb8aeff32b6d0f055e5f070&libraries=services"></script>
+        
+    </body>
+</head>

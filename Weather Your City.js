@@ -1,0 +1,69 @@
+const api_key = "8fb4059bc67bab8fc8eb575b23460ee6";
+const city = document.getElementById("city");
+const weather_icon = document.getElementById("weather_icon");
+const weather_description = document.getElementById("weather_description");
+const currunt_temperature = document.getElementById("currunt_temperature");
+const max_temperature = document.getElementById("max_temperature");
+const min_temperature = document.getElementById("min_temperature");
+const feels_like_temperature = document.getElementById(
+  "feels_like_temperature"
+);
+const humidity = document.getElementById("humidity");
+const rain_volume = document.getElementById("rain_volume");
+const wind_speed = document.getElementById("wind_speed");
+
+function getWeather(latitude, longitude) {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}&units=metric`
+  )
+    .then(function (response) {
+      return response.json(); //response 스트림을 가져와 완료될 때 까지 읽고 문자열을 JSON으로 바꾸는 결과로 해결되는 promise를 반환합니다
+    })
+    .then(function (json) {
+      const weather_icon_code = json.weather[0].icon;
+      const weather_description_data = json.weather[0].description;
+      const temperature_data = json.main.temp;
+      const temperature_min_data = json.main.temp_min;
+      const temperature_max_data = json.main.temp_max;
+      const temperature_feels_like_data = json.main.feels_like;
+      const humidity_data = json.main.humidity;
+      const rain_volume_data = json.rain["1h"];
+      const wind_speed_data = json.wind.speed;
+
+      weather_description.innerText = weather_description_data;
+      weather_icon.src = `icon/${weather_icon_code}.png`;
+      currunt_temperature.innerText = temperature_data;
+      max_temperature.innerText = temperature_max_data;
+      min_temperature.innerText = temperature_min_data;
+      feels_like_temperature.innerText = temperature_feels_like_data;
+      humidity.innerText = humidity_data;
+      rain_volume.innerText = rain_volume_data;
+      wind_speed.innerText = wind_speed_data;
+    }); // 상위 함수의 동작이 끝나면(response.json()이 반환되면) 그 값에서 온도와 장소 정보를 가져와 화면에 출력합니다
+}
+
+function handleGeoSucces(position) {
+  var geocoder = new kakao.maps.services.Geocoder();
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  let usersLocation = "";
+
+  function convertAddress(result) {
+    usersLocation = `${result[0].address.region_2depth_name} ${result[0].address.region_3depth_name}`;
+    city.innerText = usersLocation;
+  }
+  geocoder.coord2Address(longitude, latitude, convertAddress); //사용자의 현재 위치 정보(위도, 경도)값을 주소로 변환합니다.
+  getWeather(latitude, longitude); //사용자의 현재 위치 정보값을 이용해 현재 날씨 정보를 가져옵니다.
+}
+
+function handleGeoError() {
+  city.innerText = "동작구 신대방2동";
+  getWeather(37.493745854773294, 126.9167404694577);
+  //사용자가 위치 정보 제공을 거부할 경우 기상청의 위치 정보를 기반으로 날씨 정보를 제공합니다.
+}
+
+function askForCoords() {
+  navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError);
+} //브라우저의 현재 정보 중 위치 정보를 가지고 옵니다. 단, 보안상의 문제로 브라우저가 위치 정보에 접근을 시도하면 사용자의 의사를 묻습니다
+
+askForCoords();
