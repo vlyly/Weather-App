@@ -2,7 +2,7 @@ const api_key = "8fb4059bc67bab8fc8eb575b23460ee6";
 const city = document.getElementById("city");
 const weather_icon = document.getElementById("weather_icon");
 const weather_description = document.getElementById("weather_description");
-const currunt_temperature = document.getElementById("currunt_temperature");
+const current_temperature = document.getElementById("current_temperature");
 const max_temperature = document.getElementById("max_temperature");
 const min_temperature = document.getElementById("min_temperature");
 const feels_like_temperature = document.getElementById(
@@ -32,7 +32,7 @@ function getWeather(latitude, longitude) {
 
       weather_description.innerText = weather_description_data;
       weather_icon.src = `icon/${weather_icon_code}.png`;
-      currunt_temperature.innerText = temperature_data;
+      current_temperature.innerText = temperature_data;
       max_temperature.innerText = temperature_max_data;
       min_temperature.innerText = temperature_min_data;
       feels_like_temperature.innerText = temperature_feels_like_data;
