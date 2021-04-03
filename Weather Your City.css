@@ -1,9 +1,15 @@
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@font-face {
+  font-family: "Eoe_Zno_L";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/Eoe_Zno_L.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 
 * {
   margin: 0;
   box-sizing: border-box;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Eoe_Zno_L", sans-serif;
   color: rgba(255, 255, 255, 0.7);
 }
 

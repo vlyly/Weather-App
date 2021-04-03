@@ -30,8 +30,6 @@ function getWeather(latitude, longitude) {
       const cloud_data = json.clouds.all;
       const wind_speed_data = json.wind.speed;
 
-      console.log(json);
-
       weather_description.innerText = weather_description_data;
       weather_icon.src = `icon/${weather_icon_code}.png`;
       current_temperature.innerText = current_temperature_data;
