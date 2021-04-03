@@ -35,7 +35,7 @@ function getWeather(latitude, longitude) {
       weather_description.innerText = weather_description_data;
       weather_icon.src = `icon/${weather_icon_code}.png`;
       current_temperature.innerText = current_temperature_data;
-      current_temperature.ariaLable = `${current_temperature_data} Celsicus`;
+      current_temperature.ariaLabel = current_temperature_data + " Celsicus";
       max_temperature.innerText = temperature_max_data;
       min_temperature.innerText = temperature_min_data;
       feels_like_temperature.innerText = temperature_feels_like_data;
