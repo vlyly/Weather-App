@@ -9,7 +9,7 @@ const feels_like_temperature = document.getElementById(
   "feels_like_temperature"
 );
 const humidity = document.getElementById("humidity");
-const rain_volume = document.getElementById("rain_volume");
+const cloud = document.getElementById("cloud");
 const wind_speed = document.getElementById("wind_speed");
 
 function getWeather(latitude, longitude) {
@@ -22,22 +22,25 @@ function getWeather(latitude, longitude) {
     .then(function (json) {
       const weather_icon_code = json.weather[0].icon;
       const weather_description_data = json.weather[0].description;
-      const temperature_data = json.main.temp;
+      const current_temperature_data = Math.floor(json.main.temp);
       const temperature_min_data = json.main.temp_min;
       const temperature_max_data = json.main.temp_max;
-      const temperature_feels_like_data = json.main.feels_like;
+      const temperature_feels_like_data = Math.floor(json.main.feels_like);
       const humidity_data = json.main.humidity;
-      const rain_volume_data = json.rain["1h"];
+      const cloud_data = json.clouds.all;
       const wind_speed_data = json.wind.speed;
+
+      console.log(json);
 
       weather_description.innerText = weather_description_data;
       weather_icon.src = `icon/${weather_icon_code}.png`;
-      current_temperature.innerText = temperature_data;
+      current_temperature.innerText = current_temperature_data;
+      current_temperature.ariaLable = `${current_temperature_data} Celsicus`;
       max_temperature.innerText = temperature_max_data;
       min_temperature.innerText = temperature_min_data;
       feels_like_temperature.innerText = temperature_feels_like_data;
       humidity.innerText = humidity_data;
-      rain_volume.innerText = rain_volume_data;
+      cloud.innerText = cloud_data;
       wind_speed.innerText = wind_speed_data;
     }); // 상위 함수의 동작이 끝나면(response.json()이 반환되면) 그 값에서 온도와 장소 정보를 가져와 화면에 출력합니다
 }

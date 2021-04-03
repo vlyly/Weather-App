@@ -10,39 +10,36 @@
     <body>
         <div class="wrapper">
             <div class="content_container">
-                <h1 id="city" class="city">경기도 용인시 보라동</h1>
-                <div class="weather_main_information_container">
-                    <div class="current_weather_container">
-                        <img id="weather_icon" class="weather_icon" src=""/>
-                        <div class="main_weather_item"><h3 id="current_temperature"></h3><span aria-label="Celsius">℃</span></div>
-                    </div>
-                    <div class="today_weather_contaienr">
-                        <div class="main_weather_item"><span id="weather_description"></span></div>
-                        <div class="main_weather_item"><span id="max_temperature"></span><span aria-label="Celsius">℃</span>/<span id="min_temperature"></span><span aria-label="Celsius">℃</span></div>
-                        <div class="main_weather_item"><span id="feels_like_temperature"></span><span aria-label="Celsius">℃</span></div>
-                    </div>
-                </div>
                 <div class="weather_detail_information_container">
-                    <ul class="weather_detail_data">
+                    <ul class="weather_detail_information">
                         <li>
-                            <h3 class="weather_detail_item_title">습도</h3>
-                            <div class="detail_weather_item"><span id="humidity" class="weather_detail_item_data"></span><span aria-label="Percentage">%</span></div>
+                            <h3 class="weather_detail_item_title">Humidity</h3>
+                            <div class="weather_detail_item"><span id="humidity" class="weather_detail_item_data"></span><span aria-label="Percentage">%</span></div>
                         </li>
                         <li>
-                            <h3 class="weather_detail_item_title">지난 1시간 강수량</h3>
-                            <div class="detail_weather_item"><span id="rain_volume" class="weather_detail_item_data"></span><span aria-label="Millimeters">mm</span></div>
+                            <h3 class="weather_detail_item_title">Clouds</h3>
+                            <div class="weather_detail_item"><span id="cloud" class="weather_detail_item_data"></span><span aria-label="Percentage">%</span></div>
                         </li>
                         <li>
-                            <h3 class="weather_detail_item_title">풍속</h3>
-                            <div class="detail_weather_item"><span id="wind_speed" class="weather_detail_item_data"></span><span aria-label="Meter per second">m/s</span></div>
+                            <h3 class="weather_detail_item_title">Wind</h3>
+                            <div class="weather_detail_item"><span id="wind_speed" class="weather_detail_item_data"></span><span aria-label="Meter per second">m/s</span></div>
                         </li>
                     </ul>
                 </div>
+                <div class="weather_main_information_container">
+                    <h3 id="current_temperature" class="current_temperature"></h3>
+                    <div class="temperature_detail_information_container">
+                        <div class="temperature_detail_item"><span id="max_temperature"></span><span aria-label="Celsius">℃</span>/<span id="min_temperature"></span><span aria-label="Celsius">℃</span></div>
+                        <div class="temperature_detail_item"><span>feels like </span><span id="feels_like_temperature"></span><span aria-label="Celsius">℃</span></div>
+                    </div>
+                </div>
+                <h1 id="city" class="city"></h1>
+                <div id="weather_description" class="weather_description"></div>
+                <img id="weather_icon" class="weather_icon" src="" title="weather_icon" alt="weather_icon"/>
             </div>
         </div>
-        <script type="text/javascript" src="Weather Your City.js"></script>
         <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
         <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f9cc2295acb8aeff32b6d0f055e5f070&libraries=services"></script>
-        
+        <script type="text/javascript" src="Weather Your City.js"></script>
     </body>
-</head>
+</html>
