@@ -111,30 +111,30 @@
 }
 
 .bg-13d {
-  background: #c9d6ff; /* fallback for old browsers */
+  background: #b4cff7; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to top,
     #eeeeee,
-    #c9d6ff
+    #b4cff7
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to top,
     #eeeeee,
-    #c9d6ff
+    #b4cff7
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .bg-13n {
-  background: #838eb1; /* fallback for old browsers */
+  background: #8e9cc9; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to top,
-    #b4c7dd,
-    #838eb1
+    #dae1e9,
+    #8e9cc9
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to top,
-    #b4c7dd,
-    #838eb1
+    #dae1e9,
+    #8e9cc9
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
