@@ -1,5 +1,5 @@
 const api_key = "8fb4059bc67bab8fc8eb575b23460ee6";
-const content_container = document.getElementById("content_container");
+const wrapper = document.getElementById("wrapper");
 const city = document.getElementById("city");
 const weather_icon = document.getElementById("weather_icon");
 const weather_description = document.getElementById("weather_description");
@@ -31,7 +31,7 @@ function getCurrentWeather(latitude, longitude) {
       const cloud_data = json.clouds.all;
       const wind_speed_data = json.wind.speed;
 
-      content_container.classList.add(`bg-${weather_icon_code}`);
+      wrapper.classList.add(`bg-${weather_icon_code}`);
       humidity.innerText = humidity_data;
       cloud.innerText = cloud_data;
       wind_speed.innerText = wind_speed_data;
@@ -55,10 +55,10 @@ function getWeatherForecast(latitude, longitude) {
     .then(function (json) {
       const doc = window.document;
       const forecast_list = document.getElementById("forecast_list");
-
+      console.log(json);
       for (let i = 0; i < 17; i++) {
-        var date = new Date(json.list[i].dt_txt);
-        var hour = (date.getHours() + 9) % 24;
+        var date = new Date(json.list[i].dt * 1000);
+        var hour = date.getHours();
         var forecast_weather_icon_code = json.list[i].weather[0].icon;
         var forecast_weather_main_data = json.list[i].weather[0].main;
         var forecast_temperature_data = Math.floor(json.list[i].main.temp_max);
@@ -71,7 +71,7 @@ function getWeatherForecast(latitude, longitude) {
         var forecast_list_item_icon = doc.createElement("img");
         forecast_list_item_icon.classList.add("forecast_list_item_icon");
         forecast_list_item_icon.src = `icon/${forecast_weather_icon_code}.png`;
-        var forecast_list_item_weather_main = doc.createElement("div");
+        var forecast_list_item_weather_main = doc.createElement("span");
         forecast_list_item_weather_main.classList.add(
           "forecast_list_item_weather_main"
         );
@@ -87,6 +87,17 @@ function getWeatherForecast(latitude, longitude) {
         forecast_list_item.appendChild(forecast_list_item_icon);
         forecast_list_item.appendChild(forecast_list_item_weather_main);
         forecast_list_item.appendChild(forecast_list_item_temperature);
+        if (date.getHours() === 0) {
+          var forecast_list_item_date_data = date.getDate();
+          var forecast_list_item_date = doc.createElement("span");
+          forecast_list_item_date.classList.add("forecast_list_item_date");
+          forecast_list_item_date.innerText = `${forecast_list_item_date_data}일`;
+          console.log(forecast_list_item_date);
+          forecast_list_item.insertBefore(
+            forecast_list_item_date,
+            forecast_list_item_hour
+          );
+        }
       }
     });
 }
