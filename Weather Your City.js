@@ -83,21 +83,17 @@ function getWeatherForecast(latitude, longitude) {
         forecast_list_item_temperature.innerHTML = `${forecast_temperature_data}<span aria-label="Celsius">℃</span>`;
 
         forecast_list.appendChild(forecast_list_item);
-        forecast_list_item.appendChild(forecast_list_item_hour);
-        forecast_list_item.appendChild(forecast_list_item_icon);
-        forecast_list_item.appendChild(forecast_list_item_weather_main);
-        forecast_list_item.appendChild(forecast_list_item_temperature);
         if (date.getHours() === 0) {
           var forecast_list_item_date_data = date.getDate();
           var forecast_list_item_date = doc.createElement("span");
           forecast_list_item_date.classList.add("forecast_list_item_date");
           forecast_list_item_date.innerText = `${forecast_list_item_date_data}일`;
-          console.log(forecast_list_item_date);
-          forecast_list_item.insertBefore(
-            forecast_list_item_date,
-            forecast_list_item_hour
-          );
+          forecast_list_item.appendChild(forecast_list_item_date);
         }
+        forecast_list_item.appendChild(forecast_list_item_hour);
+        forecast_list_item.appendChild(forecast_list_item_icon);
+        forecast_list_item.appendChild(forecast_list_item_weather_main);
+        forecast_list_item.appendChild(forecast_list_item_temperature);
       }
     });
 }
