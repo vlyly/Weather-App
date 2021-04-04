@@ -127,13 +127,34 @@ a:visited {
   width: 90%;
   margin: 0 auto;
   padding: 0;
-  overflow: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
-.forecast_list::-webkit-scrollbar {
-  display: none;
+.hidden_scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hidden_scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
+}
+
+/* width */
+.custom_scrollbar::-webkit-scrollbar {
+  height: 8px; /* Chrome, Safari, Opera*/
+}
+
+/* Track */
+.custom_scrollbar::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.5); /* Chrome, Safari, Opera*/
+}
+
+/* Handle */
+.custom_scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background: white; /* Chrome, Safari, Opera*/
 }
 
 .forecast_list_item {
@@ -170,7 +191,7 @@ a:visited {
 }
 
 .forecast_list_item_temperature {
-  margin-top: 15px;
+  margin: 15px 0 10px 0;
   font-size: 13px;
 }
 

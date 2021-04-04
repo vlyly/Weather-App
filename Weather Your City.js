@@ -12,6 +12,7 @@ const feels_like_temperature = document.getElementById(
 const humidity = document.getElementById("humidity");
 const cloud = document.getElementById("cloud");
 const wind_speed = document.getElementById("wind_speed");
+const forecast_list = document.getElementById("forecast_list");
 
 function getCurrentWeather(latitude, longitude) {
   fetch(
@@ -54,8 +55,7 @@ function getWeatherForecast(latitude, longitude) {
     })
     .then(function (json) {
       const doc = window.document;
-      const forecast_list = document.getElementById("forecast_list");
-      console.log(json);
+
       for (let i = 0; i < 17; i++) {
         var date = new Date(json.list[i].dt * 1000);
         var hour = date.getHours();
@@ -124,4 +124,17 @@ function askForCoords() {
   navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError);
 } //브라우저의 현재 정보 중 위치 정보를 가지고 옵니다. 단, 보안상의 문제로 브라우저가 위치 정보에 접근을 시도하면 사용자의 의사를 묻습니다
 
+function detectDevice() {
+  if (
+    !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
+  ) {
+    forecast_list.classList.add("custom_scrollbar");
+  } else {
+    forecast_list.classList.add("hidden_scrollbar");
+  }
+}
+
 askForCoords();
+detectDevice();
