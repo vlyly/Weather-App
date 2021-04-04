@@ -115,7 +115,7 @@ function handleGeoSucces(position) {
 
 function handleGeoError() {
   city.innerText = "동작구 신대방2동";
-  getCurrnetWeather(37.493745854773294, 126.9167404694577);
+  getCurrentWeather(37.493745854773294, 126.9167404694577);
   getWeatherForecast(37.493745854773294, 126.9167404694577);
   //사용자가 위치 정보 제공을 거부할 경우 기상청의 위치 정보를 기반으로 날씨 정보를 제공합니다.
 }
