@@ -44,7 +44,9 @@ a:visited {
   align-items: center;
   position: relative;
   width: 100%;
+  max-width: 1024px;
   height: 100%;
+  margin: 0 auto;
 }
 
 .weather_detail_information_container {
@@ -114,15 +116,23 @@ a:visited {
 /***weather forecast***/
 
 .forecast_container {
+  position: relative;
+  bottom: -90px;
   width: 100%;
 }
 
 .forecast_list {
   display: flex;
   width: 90%;
-  margin: 50px auto 0 auto;
+  margin: 0 auto;
   padding: 0;
   overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.forecast_list::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
 }
 
 .forecast_list_item {
@@ -134,6 +144,10 @@ a:visited {
   width: 25%;
   padding: 0 20px;
   text-align: center;
+}
+
+.forecast_list_item_hour {
+  font-size: 13px;
 }
 
 .forecast_list_item_icon {
@@ -151,4 +165,58 @@ a:visited {
 .forecast_list_item_temperature {
   margin-top: 15px;
   font-size: 13px;
+}
+
+@media screen and (min-width: 540px) {
+  .forecast_list_item {
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .weather_detail_item_title,
+  .weather_detail_item {
+    font-size: 15px;
+  }
+
+  .temperature_detail_information_container::before {
+    font-size: 36px;
+  }
+
+  .current_temperature {
+    font-size: 82px;
+  }
+
+  .weather_main_information_container {
+    font-size: 14px;
+  }
+
+  .weather_description {
+    font-size: 15px;
+  }
+
+  /***forecast weather***/
+
+  .forecast_container {
+    bottom: -150px;
+  }
+
+  .forecast_list_item_hour,
+  .forecast_list_item_temperature {
+    font-size: 15px;
+  }
+  .forecast_list_item_icon {
+    width: 45px;
+  }
+
+  .forecast_list_item_weather_main {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .forecast_container {
+    bottom: -220px;
+  }
 }
