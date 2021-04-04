@@ -9,7 +9,7 @@
         <title>Weather Your City</title>
     </head>
     <body>
-        <div class="wrapper">
+        <div id="wrapper" class="wrapper">
             <div id="content_container" class="content_container">
                 <div class="weather_detail_information_container">
                     <ul class="weather_detail_information">
@@ -36,7 +36,11 @@
                 </div>
                 <h1 id="city" class="city"></h1>
                 <div id="weather_description" class="weather_description"></div>
-                <img id="weather_icon" class="weather_icon" src="" title="weather_icon" alt="weather_icon"/>
+                <img id="weather_icon" class="weather_icon" src="" title="weather icon" alt="weather icon"/>
+                <div class="forecast_container">
+                    <ol id="forecast_list" class="forecast_list">
+                    </ol>
+                </div>
             </div>
         </div>
         <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

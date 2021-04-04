@@ -13,7 +13,7 @@ const humidity = document.getElementById("humidity");
 const cloud = document.getElementById("cloud");
 const wind_speed = document.getElementById("wind_speed");
 
-function getWeather(latitude, longitude) {
+function getCurrentWeather(latitude, longitude) {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}&units=metric`
   )
@@ -45,6 +45,52 @@ function getWeather(latitude, longitude) {
     }); // 상위 함수의 동작이 끝나면(response.json()이 반환되면) 그 값에서 온도와 장소 정보를 가져와 화면에 출력합니다
 }
 
+function getWeatherForecast(latitude, longitude) {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${api_key}&units=metric`
+  )
+    .then(function (response) {
+      return response.json(); //response 스트림을 가져와 완료될 때 까지 읽고 문자열을 JSON으로 바꾸는 결과로 해결되는 promise를 반환합니다
+    })
+    .then(function (json) {
+      const doc = window.document;
+      const forecast_list = document.getElementById("forecast_list");
+
+      for (let i = 0; i < 17; i++) {
+        var date = new Date(json.list[i].dt_txt);
+        var hour = (date.getHours() + 9) % 24;
+        var forecast_weather_icon_code = json.list[i].weather[0].icon;
+        var forecast_weather_main_data = json.list[i].weather[0].main;
+        var forecast_temperature_data = Math.floor(json.list[i].main.temp_max);
+
+        var forecast_list_item = doc.createElement("li");
+        forecast_list_item.classList.add("forecast_list_item");
+        var forecast_list_item_hour = doc.createElement("h5");
+        forecast_list_item_hour.classList.add("forecast_list_item_hour");
+        forecast_list_item_hour.innerText = `${hour}시`;
+        var forecast_list_item_icon = doc.createElement("img");
+        forecast_list_item_icon.classList.add("forecast_list_item_icon");
+        forecast_list_item_icon.src = `icon/${forecast_weather_icon_code}.png`;
+        var forecast_list_item_weather_main = doc.createElement("div");
+        forecast_list_item_weather_main.classList.add(
+          "forecast_list_item_weather_main"
+        );
+        forecast_list_item_weather_main.innerText = forecast_weather_main_data;
+        var forecast_list_item_temperature = doc.createElement("strong");
+        forecast_list_item_temperature.classList.add(
+          "forecast_list_item_temperature"
+        );
+        forecast_list_item_temperature.innerHTML = `${forecast_temperature_data}<span aria-label="Celsius">℃</span>`;
+
+        forecast_list.appendChild(forecast_list_item);
+        forecast_list_item.appendChild(forecast_list_item_hour);
+        forecast_list_item.appendChild(forecast_list_item_icon);
+        forecast_list_item.appendChild(forecast_list_item_weather_main);
+        forecast_list_item.appendChild(forecast_list_item_temperature);
+      }
+    });
+}
+
 function handleGeoSucces(position) {
   var geocoder = new kakao.maps.services.Geocoder();
   const latitude = position.coords.latitude;
@@ -56,12 +102,14 @@ function handleGeoSucces(position) {
     city.innerText = usersLocation;
   }
   geocoder.coord2Address(longitude, latitude, convertAddress); //사용자의 현재 위치 정보(위도, 경도)값을 주소로 변환합니다.
-  getWeather(latitude, longitude); //사용자의 현재 위치 정보값을 이용해 현재 날씨 정보를 가져옵니다.
+  getCurrentWeather(latitude, longitude);
+  getWeatherForecast(latitude, longitude); //사용자의 현재 위치 정보값을 이용해 현재 날씨 정보를 가져옵니다.
 }
 
 function handleGeoError() {
   city.innerText = "동작구 신대방2동";
-  getWeather(37.493745854773294, 126.9167404694577);
+  getCurrnetWeather(37.493745854773294, 126.9167404694577);
+  getWeatherForecast(37.493745854773294, 126.9167404694577);
   //사용자가 위치 정보 제공을 거부할 경우 기상청의 위치 정보를 기반으로 날씨 정보를 제공합니다.
 }
 
