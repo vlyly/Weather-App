@@ -131,15 +131,6 @@ a:visited {
   overflow-y: hidden;
 }
 
-.hidden_scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-.hidden_scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera*/
-}
-
 /* width */
 .custom_scrollbar::-webkit-scrollbar {
   height: 8px; /* Chrome, Safari, Opera*/

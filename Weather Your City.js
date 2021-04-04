@@ -131,8 +131,6 @@ function detectDevice() {
     )
   ) {
     forecast_list.classList.add("custom_scrollbar");
-  } else {
-    forecast_list.classList.add("hidden_scrollbar");
   }
 }
 
