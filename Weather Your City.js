@@ -38,9 +38,12 @@ function getCurrentWeather(latitude, longitude) {
       wind_speed.innerText = wind_speed_data;
       current_temperature.innerText = current_temperature_data;
       current_temperature.ariaLabel = current_temperature_data + " Celsicus";
-      max_temperature.innerText = temperature_max_data;
-      min_temperature.innerText = temperature_min_data;
-      feels_like_temperature.innerText = temperature_feels_like_data;
+      max_temperature.innerText = temperature_max_data.slice(0, 2);
+      min_temperature.innerText = temperature_min_data.slice(0, 2);
+      feels_like_temperature.innerText = temperature_feels_like_data.slice(
+        0,
+        2
+      );
       weather_description.innerText = weather_description_data;
       weather_icon.src = `icon/${weather_icon_code}.png`;
     }); // 상위 함수의 동작이 끝나면(response.json()이 반환되면) 그 값에서 온도와 장소 정보를 가져와 화면에 출력합니다
@@ -89,12 +92,12 @@ function getWeatherForecast(latitude, longitude) {
           forecast_list_item_date.classList.add("forecast_list_item_date");
           forecast_list_item_date.innerText = `${forecast_list_item_date_data}일`;
           forecast_list_item.appendChild(forecast_list_item_date);
-        }
+        } //24시라면 위에 날짜를 함께 표시해줍니다.
         forecast_list_item.appendChild(forecast_list_item_hour);
         forecast_list_item.appendChild(forecast_list_item_icon);
         forecast_list_item.appendChild(forecast_list_item_weather_main);
         forecast_list_item.appendChild(forecast_list_item_temperature);
-      }
+      } // element가 많다면 innerHTML이 속도가 더 빠릅니다.
     });
 }
 
@@ -122,7 +125,7 @@ function handleGeoError() {
 
 function askForCoords() {
   navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError);
-} //브라우저의 현재 정보 중 위치 정보를 가지고 옵니다. 단, 보안상의 문제로 브라우저가 위치 정보에 접근을 시도하면 사용자의 의사를 묻습니다
+} //브라우저의 현재 정보 중 위치 정보를 가지고 옵니다. 단, 보안상의 문제로 브라우저가 위치 정보에 접근을 시도하면 사용자의 의사를 묻습니다.
 
 function detectDevice() {
   if (
