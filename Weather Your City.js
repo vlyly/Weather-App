@@ -38,11 +38,10 @@ function getCurrentWeather(latitude, longitude) {
       wind_speed.innerText = wind_speed_data;
       current_temperature.innerText = current_temperature_data;
       current_temperature.ariaLabel = current_temperature_data + " Celsicus";
-      max_temperature.innerText = temperature_max_data.slice(0, 2);
-      min_temperature.innerText = temperature_min_data.slice(0, 2);
-      feels_like_temperature.innerText = temperature_feels_like_data.slice(
-        0,
-        2
+      max_temperature.innerText = Math.floor(temperature_max_data);
+      min_temperature.innerText = Math.floor(temperature_min_data);
+      feels_like_temperature.innerText = Math.floor(
+        temperature_feels_like_data
       );
       weather_description.innerText = weather_description_data;
       weather_icon.src = `icon/${weather_icon_code}.png`;
