@@ -21,6 +21,9 @@ function getCurrentWeather(latitude, longitude) {
     .then(function (response) {
       return response.json(); //response 스트림을 가져와 완료될 때 까지 읽고 문자열을 JSON으로 바꾸는 결과로 해결되는 promise를 반환합니다
     })
+    .catch((error) => {
+      alert("🤢\nSorry, Something's wrong... ");
+    })
     .then(function (json) {
       const weather_icon_code = json.weather[0].icon;
       const weather_description_data = json.weather[0].description;
@@ -86,8 +89,8 @@ function getWeatherForecast(latitude, longitude) {
 
         forecast_list.appendChild(forecast_list_item);
         if (date.getHours() === 0) {
-          var forecast_list_item_date_data = date.getDate();
-          var forecast_list_item_date = doc.createElement("span");
+          const forecast_list_item_date_data = date.getDate();
+          const forecast_list_item_date = doc.createElement("span");
           forecast_list_item_date.classList.add("forecast_list_item_date");
           forecast_list_item_date.innerText = `${forecast_list_item_date_data}일`;
           forecast_list_item.appendChild(forecast_list_item_date);
