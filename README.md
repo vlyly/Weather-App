@@ -19,9 +19,18 @@ l. 목표<br>
 <h3>미리보기</h3>
 <div align="center">
 
+  <br>
+ <p>PC ver.</p>
+  <br>
+  
 ![FireShot Capture 018 - Weather Your City - vlyly github io](https://user-images.githubusercontent.com/69294741/139661010-a3623836-2072-4235-ba57-fa09e65fc404.png)
 
-![FireShot Capture 019 - Weather Your City - vlyly github io](https://user-images.githubusercontent.com/69294741/139661013-c0a732db-b8ca-47d1-b4cb-3d27d5fe0687.png)
+ <br>
+<p>Mobile ver.</p>
+ <br>
+  
+![FireShot Capture 026 - Weather Your City - vlyly github io](https://user-images.githubusercontent.com/69294741/139795098-f4a79e18-01dd-43da-871c-7e3c43529fdd.png)
+
 
 </div>
 
@@ -33,4 +42,5 @@ l. 목표<br>
 <hr>
 <h3>개선할 점</h3>
 1. 사용자에게 더 실용적이고 다양한 정보 제공(ex : 미세먼지 수치 등)<br>
+2. 최저, 최고 기온을 보다 더 실용적인 정보로 변경(현재 시점의 최저, 최저 온도를 나타내는 중..)<br>
 
