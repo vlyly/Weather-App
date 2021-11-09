@@ -1,5 +1,5 @@
 <h2>🌤날씨 앱☔</h2>
-openweathermap의 날씨 API, 카카오 지도 API를 이용한 일기 예보 앱
+openweathermap의 날씨 API, 카카오 지도 API를 이용한 일기 예보 앱<strong>(Internet Explorer 미지원)</strong>
 
 <h3>목차</h3>
 l. 목표<br>
