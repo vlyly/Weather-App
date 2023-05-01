@@ -56,7 +56,7 @@ function getWeather(latitude, longitude) {
         const currIcon = document.getElementById(`item${i}_icon`);
         const currMain = document.getElementById(`item${i}_main`);
         const currTemp = document.getElementById(`item${i}_temp`);
-        const date = new Date(json.list[i].dt * 1000);
+        const date = new Date(json.dt * 1000);
         const hour = handleNumber(date.getHours());
         const forecast_weather_icon_code = json.list[i].weather[0].icon;
         const forecast_weather_main_data = json.list[i].weather[0].main;
